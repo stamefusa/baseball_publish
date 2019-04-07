@@ -13,6 +13,8 @@ var json_example = [
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
+  body = req.query.action;
+
   const AWS = require('aws-sdk');
   AWS.config.loadFromPath('./config.json');
   var sqs = new AWS.SQS({
@@ -21,7 +23,7 @@ router.get('/', function(req, res, next) {
   });
   var params = {
       DelaySeconds: 0,
-      MessageBody: "test",
+      MessageBody: body,
       QueueUrl: "https://sqs.us-east-1.amazonaws.com/560746380060/baseball"
   };
 
