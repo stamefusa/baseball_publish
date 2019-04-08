@@ -1,22 +1,14 @@
 var express = require('express');
 var router = express.Router();
 
-var json_example = [
-    {
-        "id": "1",
-        "name": "example_json_1",
-    },{
-        "id": "2",
-        "name": "example_json_2"
-    }
-];
-
 /* GET home page. */
 router.get('/', function(req, res, next) {
   body = req.query.action;
 
   const AWS = require('aws-sdk');
-  AWS.config.loadFromPath('./config.json');
+  if (!process.env.AWS_ACCESS_KEY_ID && !process.env.AWS_SECRET_ACCESS_KEY) {
+    AWS.config.loadFromPath('./config.json');
+  }
   var sqs = new AWS.SQS({
       apiVersion: '2012-11-05',
       region: 'ap-northeast-1'
