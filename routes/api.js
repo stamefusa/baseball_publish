@@ -19,12 +19,14 @@ router.get('/', function(req, res, next) {
   AWS.config.loadFromPath('./config.json');
   var sqs = new AWS.SQS({
       apiVersion: '2012-11-05',
-      region: 'us-east-1'
+      region: 'ap-northeast-1'
+      //region: 'us-east-1'
   });
   var params = {
       DelaySeconds: 0,
       MessageBody: body,
-      QueueUrl: "https://sqs.us-east-1.amazonaws.com/560746380060/baseball"
+      QueueUrl: "https://sqs.ap-northeast-1.amazonaws.com/560746380060/baseball"
+      //QueueUrl: "https://sqs.us-east-1.amazonaws.com/560746380060/baseball"
   };
 
   sqs.sendMessage(params, function(err, data) {
