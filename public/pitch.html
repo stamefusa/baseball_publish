@@ -10,7 +10,7 @@
             $("#pitch").on('click', function(){
                 console.log('pitch');
                 $.ajax({
-                    url: 'http://localhost:3000/api?action=pitch'
+                    url: 'http://peaceful-bastion-38461.herokuapp.com/api?action=pitch'
                 })
                 .then(
                         data => console.log(data),
@@ -20,7 +20,7 @@
             $("#magic").on('click', function(){
                 console.log('magic');
                 $.ajax({
-                    url: 'http://localhost:3000/api?action=magic'
+                    url: 'http://peaceful-bastion-38461.herokuapp.com/api?action=magic'
                 })
                 .then(
                         data => console.log(data),
@@ -30,7 +30,7 @@
             $("#reset").on('click', function(){
                 console.log('reset');
                 $.ajax({
-                    url: 'http://localhost:3000/api?action=reset'
+                    url: 'http://peaceful-bastion-38461.herokuapp.com/api?action=reset'
                 })
                 .then(
                         data => console.log(data),
@@ -39,8 +39,6 @@
             });
         });
         </script>
-        <style type="text/css">
-        </style>
     </head>
     <body>
         <section class="section">
